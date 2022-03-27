@@ -6,8 +6,8 @@ let gamePattern = [];
 let userPattern = [];
 $(".btn").click(function (event) {
     let usercolor = this.id;
-    colorAudio = new Audio("src/" + usercolor + ".ogg")
-    colorAudio.play();
+    playsound(usercolor);
+    $(('#'+ usercolor)).fadeOut(100).fadeIn(100);
     userPattern.push(usercolor); 
     console.log(userPattern);       
 })
@@ -18,7 +18,18 @@ function nextSequence() {
     gamePattern.push(randomChoosenColor);
 
     let selectedColor = gamePattern[(gamePattern.length)-1];
-    colorAudio = new Audio("src/"+ selectedColor+".ogg");
-    colorAudio.play()
+    playsound(selectedColor);
     $(('#'+ selectedColor)).fadeOut(100).fadeIn(100);
 }
+
+function playsound(sound) {
+    choosensound = new Audio("src/" + sound + ".ogg")
+    choosensound.play()    
+}
+
+
+
+
+
+
+
